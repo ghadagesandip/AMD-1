@@ -1,0 +1,25 @@
+<section layout="row"  layout-align="center center" layout-wrap>
+
+    <md-content layout-padding>
+        <p class="inset">
+            Create team here :
+        </p>
+        <form name="createTeamFrm">
+            <md-input-container class="md-block">
+                <label>Team Name</label>
+                <input type="text" name="name" data-ng-model="setName" required>
+                <div ng-show="AddTeamMembersFrm.fullname.$invalid && submitted" ng-messages="createTeamFrm.name.$invalid && submitted">
+                    <div ng-show="createTeamFrm.name.$error.required" ng-message="required">Please enter team name.</div>
+                    <div ng-show="createTeamFrm.name.$error.unique" ng-message="required">Sorry, this team name is not available,choose different name.</div>
+                </div>
+            </md-input-container>
+
+
+            <md-input-container class="md-block">
+                <md-button ng-click="createTeam()" class="md-raised md-primary">Create Team</md-button>
+            </md-input-container>
+        </form>
+    </md-content>
+
+
+</section>

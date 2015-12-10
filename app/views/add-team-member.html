@@ -1,0 +1,68 @@
+<div layout="row" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-content layout="row" layout-sm="column">
+        <div flex="40">
+            <div>
+                Great! lets enter some team members. We recommend starting with 3 members that you are most eager to develop and then adding later.
+            </div>
+
+            <div layout="row" ng-show="shomessage">
+                <md-progress-circular md-mode="indeterminate" ng-show="progresshide"></md-progress-circular>
+                <div layout-align="center center" data-ng-bind="feedback_message"></div>
+            </div>
+
+
+            <form name="AddTeamMembersFrm" novalidate="">
+
+                <md-input-container class="md-block">
+                    <label>Full Name</label>
+                    <input type="text" name="fullname" data-ng-model="member.fullname" ng-pattern="/^[a-zA-Z]+[\s][a-zA-Z]/" ng-required="true">
+                    <div ng-show="AddTeamMembersFrm.fullname.$invalid && submitted" ng-messages="AddTeamMembersFrm.fullname.$invalid && submitted">
+                        <div ng-message="required" ng-show="AddTeamMembersFrm.fullname.$error.required">This field is required.</div>
+                        <div ng-message="pattern" ng-show="AddTeamMembersFrm.fullname.$error.pattern">Please enter member's full name.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Email Address</label>
+                    <input type="email" name="email" data-ng-model="member.email" required  ng-pattern="/^.+@.+\..+$/">
+                    <div ng-show="AddTeamMembersFrm.email.$invalid && submitted" ng-messages="AddTeamMembersFrm.fullname.$invalid && submitted">
+                        <span ng-message="required" class="error" ng-show="AddTeamMembersFrm.email.$error.required">Please enter email address.</span>
+                        <span ng-message="pattern" class="error" ng-show="AddTeamMembersFrm.email.$error.pattern">Please enter valid email address.</span>
+                        <span ng-message="pattern" class="error" ng-show="AddTeamMembersFrm.email.$error.alreadyregisterd">Member is already registerd with this email address.</span>
+                    </div>
+                </md-input-container>
+
+                <section layout="row" layout-sm="column" layout-align="center right" layout-wrap>
+                    <md-button ng-click="addMembersToTeam()" class="md-raised md-primary">Add Member</md-button>
+                    <md-button type="reset" class="md-raised md-primary">Cancel</md-button>
+                </section>
+            </form>
+        </div>
+        <div flex="40" flex-offset="10">
+
+            <md-list>
+
+                <md-subheader class="md-no-sticky">{{members.length}} members added </md-subheader>
+                <div layout="column">
+                    <md-input-container flex>
+                        <label>Search...</label>
+                        <input ng-model="searchText">
+                    </md-input-container>
+                </div>
+                <div>{{memeberDeletMsg}}</div>
+                <md-list-item class="md-3-line" ng-repeat="member in members | orderBy:'-id' | filter:searchText ">
+
+                    <img ng-src="{{member.google_image_url ? member.google_image_url : 'something else'}}" class="md-avatar"  />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ member.google_name }}</h3>
+                        <h4>{{ member.email }}</h4>
+                        <p>Active : {{ member.active }}</p>
+                    </div>
+                    <a ng-click="removeMemberFromTeam(member)" href=""><md-icon md-font-library="material-icons">delete</md-icon></a>
+                </md-list-item>
+                <md-divider ></md-divider>
+            </md-list>
+        </div>
+    </md-content>
+</div>
+

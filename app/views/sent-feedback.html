@@ -1,0 +1,9 @@
+<section layout="row"  layout-align="center center" layout-wrap>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-disabled="feedback.action" label="Feedback-{{$index+1}}" ng-repeat="feedback in feedbackDatails.feedbacks">
+                <my-feedback selectbadge="setBadge(badge)" send="submitFeedback(member,feedItem,skipped)"  senderPic ="sandip" badges="badges" feed="feedback"></my-feedback>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</section>

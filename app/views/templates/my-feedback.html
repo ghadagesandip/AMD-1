@@ -1,0 +1,30 @@
+<md-content class="md-padding">
+
+    <h1>Feedback for {{feed.feedback_to.first_name}} <img ng-src="{{feed.feedback_to.google_image_url}}" class="md-avatar"  /></h1>
+
+    <h5><i>{{ feed.question.question.split('[FIRST_NAME]').join(feed.feedback_to.first_name) }}</i></h5>
+
+    <div layout="row" layout-wrap>
+        <img ng-src="{{senderPic}}" class="md-avatar" />
+        <md-input-container class="md-block">
+            <label>Feedback Text : </label>
+            <textarea ng-model="member.feedback_text" columns="1" md-maxlength="500" rows="5"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-wrap>
+        <div layout="row">
+            <input type="text" ng-model="member.badge_id"/>
+            <img ng-src="{{badge.inactive_image}}" alt="" ng-click="selectbadge({badgeObj:badge})" ng-repeat="badge in badges"/>
+        </div>
+    </div>
+
+    <div layout="column">
+        <div flex="initial">
+            <md-button ng-click="send({member:member,feedItem:feed,skipped:2})" class="md-raised md-primary">Send</md-button>
+        </div>
+    </div>
+
+    <div layout="column" layout-align="center end">
+        <md-button ng-click="send({member:member,feedItem:feed,skipped:1})"> Skip </md-button>
+    </div>
+</md-content>

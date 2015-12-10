@@ -1,0 +1,58 @@
+<div layout="row" flex>
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+        <md-list>
+            <md-list-item>
+                <md-button>
+                    Your feedback
+                </md-button>
+
+            </md-list-item>
+            <md-list-items>
+                <md-button>
+                    Send feedback
+                </md-button>
+
+            </md-list-items>
+
+            <md-list-items>
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+            </md-list-items>
+
+            <md-list-items>
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+            </md-list-items>
+
+            <md-list-items>
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+            </md-list-items>
+
+            <md-list-items>
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+            </md-list-items>
+        </md-list>
+    </md-sidenav>
+
+    <md-content id="content" flex>
+        <md-list>
+            <md-list-items layout="row">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <p>feedback details goes here</p>
+            </md-list-items>
+
+            <md-list-items layout="row">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <p>feedback details goes here</p>
+            </md-list-items>
+
+            <md-list-items layout="row">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <p>feedback details goes here</p>
+            </md-list-items>
+
+            <md-list-items layout="row">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <p>feedback details goes here</p>
+            </md-list-items>
+        </md-list>
+    </md-content>
+</div>
