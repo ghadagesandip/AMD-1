@@ -1,8 +1,7 @@
-var app = angular.module('Tinker',['ngRoute','ngMaterial'])
+var app = angular.module('starterApp',['ngRoute','ngMaterial','users'])
     app.value('baseUrl','../TinkerCake/api/');
-    app.config(['$routeProvider',function($routeProvider){
+    app.config(['$routeProvider','$mdThemingProvider', '$mdIconProvider',function($routeProvider,$mdThemingProvider, $mdIconProvider){
         $routeProvider
-
         .when('/',      { title:"Login", controller:'LoginCtrl', templateUrl:'views/login.html' })
         .when('/login', { title:"Login", controller:'LoginCtrl', templateUrl:'views/login.html' })
         .when('/logout', { title:"Logout", controller:'LogoutCtrl', templateUrl:'views/logout.html' })
@@ -13,6 +12,19 @@ var app = angular.module('Tinker',['ngRoute','ngMaterial'])
         .when('/recent-feedback',{ title:"Recent Feedback", controller:'RecentFeedbackCtrl', templateUrl:'views/recent-feedback.html' })
         .when('/send-feedback/:feedbackLogId',{ title:"Send Feedback", controller:'SendFeedbackCtrl', templateUrl:'views/sent-feedback.html'})
         .otherwise({redirectTo:'/login'});
+
+        $mdIconProvider
+            .defaultIconSet("./assets/svg/avatars.svg", 128)
+            .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+            .icon("share"      , "./assets/svg/share.svg"       , 24)
+            .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+            .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+            .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+            .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('brown')
+            .accentPalette('red');
     }]);
 
     app.run(['$location', '$rootScope', function($location, $rootScope) {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" ng-app="starterApp">
 <head>
     <title>Angular Material - Starter App</title>
 
@@ -24,10 +24,7 @@
 
 </head>
 
-<body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak >
-
-
-
+<body layout="row" ng-controller="UserController as ul" ng-cloak >
 
 <div flex layout="row" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
@@ -45,7 +42,7 @@
             </div>
         </md-toolbar>
 
-        <md-content flex layout="row" >
+        <md-content flex layout="row"  >
             <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
                 <md-list>
                     <md-list-item ng-repeat="it in ul.users">
@@ -74,31 +71,40 @@
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-animate/angular-animate.js"></script>
 <script src="./bower_components/angular-aria/angular-aria.js"></script>
-<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/angular-route/angular-route.min.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+
 
 <script src="./src/users/Users.js"></script>
 <script src="./src/users/UserController.js"></script>
 <script src="./src/users/UserService.js"></script>
 
+<script src="./src/app.js"></script>
+
+<!--Start : Controllers -->
+<script src="./src/controllers/LoginCtrl.js"></script>
+<script src="./src/controllers/LogoutCtrl.js"></script>
+<script src="./src/controllers/CreateTeamCtrl.js"></script>
+<script src="./src/controllers/AddTeamMemberCtrl.js"></script>
+<script src="./src/controllers/SignupToTeamCtrl.js"></script>
+<script src="./src/controllers/RecentFeedbackCtrl.js"></script>
+<script src="./src/controllers/SendFeedbackCtrl.js"></script>
+<!--End : Controllers -->
+
+<!--Start : Directives -->
+<script src="./src/directives/google-plus-signin.js"></script>
+<script src="./src/directives/my-feedback.js"></script>
+<script src="./src/directives/my-badges.js"></script>
+<!--End : Directives -->
+
+<!--Start : Services -->
+<script src="./src/services/login-service.js"></script>
+<script src="./src/services/team.js"></script>
+<script src="./src/services/members.js"></script>
+<script src="./src/services/feedback.js"></script>
+<!--End : Services -->
+
 <script type="text/javascript">
-
-    angular.module('starterApp', ['ngMaterial', 'users'])
-            .config(function($mdThemingProvider, $mdIconProvider){
-
-                $mdIconProvider
-                        .defaultIconSet("./assets/svg/avatars.svg", 128)
-                        .icon("menu"       , "./assets/svg/menu.svg"        , 24)
-                        .icon("share"      , "./assets/svg/share.svg"       , 24)
-                        .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
-                        .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
-                        .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
-                        .icon("phone"      , "./assets/svg/phone.svg"       , 512);
-
-                $mdThemingProvider.theme('default')
-                        .primaryPalette('brown')
-                        .accentPalette('red');
-
-            });
 
 </script>
 
