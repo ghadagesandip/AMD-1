@@ -4,7 +4,7 @@ app.controller('LoginCtrl',['$scope','$window','$location','loginFact',function(
     $scope.ctrlerror = '';
 
     if(loginFact.isLoggedIn()){
-        $location.path('/recent-feedback');
+        $location.path('/home');
     }
 
     $window.onSignIn = function(googleUser){
@@ -41,7 +41,7 @@ app.controller('LoginCtrl',['$scope','$window','$location','loginFact',function(
                         $location.path('/create-team');
                     }else{
                         loginFact.saveValue('teamId', data.data.teamId);
-                        $location.path('/recent-feedback');
+                        $location.path('/home');
 
                     }
 

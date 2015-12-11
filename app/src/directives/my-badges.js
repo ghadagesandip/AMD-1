@@ -1,7 +1,7 @@
 app.directive('myBadges',function(){
     return {
         restrict : "E",
-        templateUrl : 'views/templates/my-badges.html',
+        templateUrl : './views/templates/my-badges.html',
         scope : {
             mybadges : "="
         },

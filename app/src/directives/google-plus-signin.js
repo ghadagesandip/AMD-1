@@ -2,7 +2,7 @@
 app.directive('googlePlusSignin', function(){
     return{
         restrict : "E",
-        template : "<div class='g-signin2' data-onsuccess='onSignIn'></div>",
+        template : "<div class='g-signin2' style='margin-top: 150px' data-theme='dark' data-longtitle='true' data-height='50' data-width='220' data-scope='https://www.googleapis.com/auth/plus.login' data-onsuccess='onSignIn'></div>",
         replace: true,
         link:function(scope, element, attrs){
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="starterApp">
+<html lang="en" ng-app="TinkerApp">
 <head>
-    <title>Angular Material - Starter App</title>
+    <title data-ng-bind="title">Tinker</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,62 +24,37 @@
 
 </head>
 
-<body layout="row" ng-controller="UserController as ul" ng-cloak >
+<body layout="column"  ng-cloak >
 
-<div flex layout="row" tabIndex="-1" role="main" class="md-whiteframe-z2">
+<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
-    <div layout="column">
-        <md-toolbar layout="row" class="md-whiteframe-z1">
-            <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-                <md-icon md-svg-icon="menu" ></md-icon>
+        <md-toolbar layout-sm="column" layout="row" class="md-whiteframe-z1">
+            <md-button class="menu" hide-gt-sm aria-label="Show User List">
+                <md-icon md-svg-icon="menu" ng-click="toggleLeft()" ></md-icon>
             </md-button>
             <div class="md-toolbar-tools">
                 <h2 class="md-flex">Tinker</h2>
             </div>
 
-            <div class="large-2 columns" ng-if="showLogout">
+            <div layout-align="center center" flex="20" layout="row" ng-if="showLogout">
+                <my-loggedin-username></my-loggedin-username>
                 <md-button class="md-primary" href="#/logout">logout</md-button>
             </div>
         </md-toolbar>
+        <md-content flex layout="row" ng-view>
 
-        <md-content flex layout="row"  >
-            <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-                <md-list>
-                    <md-list-item ng-repeat="it in ul.users">
-                        <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-                            {{it.name}}
-                        </md-button>
-                    </md-list-item>
-                </md-list>
-            </md-sidenav>
-
-            <div layout="column" id="content">
-                <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-                <h2>{{ul.selected.name}}</h2>
-                <p>{{ul.selected.content}}</p>
-
-                <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
-                    <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
-                    <md-icon md-svg-icon="share"></md-icon>
-                </md-button>
-            </div>
         </md-content>
-    </div>
+
 </div>
 
-<script src="./bower_components/angular/angular.js"></script>
+<script src="bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-animate/angular-animate.js"></script>
 <script src="./bower_components/angular-aria/angular-aria.js"></script>
 <script src="./bower_components/angular-route/angular-route.min.js"></script>
 <script src="./bower_components/angular-material/angular-material.js"></script>
 
 
-<script src="./src/users/Users.js"></script>
-<script src="./src/users/UserController.js"></script>
-<script src="./src/users/UserService.js"></script>
-
-<script src="./src/app.js"></script>
+<script src="src/app.js"></script>
 
 <!--Start : Controllers -->
 <script src="./src/controllers/LoginCtrl.js"></script>
@@ -87,14 +62,18 @@
 <script src="./src/controllers/CreateTeamCtrl.js"></script>
 <script src="./src/controllers/AddTeamMemberCtrl.js"></script>
 <script src="./src/controllers/SignupToTeamCtrl.js"></script>
-<script src="./src/controllers/RecentFeedbackCtrl.js"></script>
+<script src="./src/controllers/HomeCtrl.js"></script>
 <script src="./src/controllers/SendFeedbackCtrl.js"></script>
+<script src="./src/controllers/SendAdhockFeedbackCtrl.js" type="text/javascript"></script>
 <!--End : Controllers -->
 
 <!--Start : Directives -->
 <script src="./src/directives/google-plus-signin.js"></script>
 <script src="./src/directives/my-feedback.js"></script>
 <script src="./src/directives/my-badges.js"></script>
+<script src="./src/directives/my-sidebar.js"></script>
+<script src="./src/directives/my-loggedin-username.js"></script>
+<script src="./src/directives/feedback-list.js"></script>
 <!--End : Directives -->
 
 <!--Start : Services -->

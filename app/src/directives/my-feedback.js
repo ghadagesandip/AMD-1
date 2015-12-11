@@ -1,7 +1,7 @@
 app.directive('myFeedback',function(){
     return {
         restrict : "E",
-        templateUrl : 'views/templates/my-feedback.html',
+        templateUrl : './views/templates/my-feedback.html',
         scope:{
             feed: "=",
             badges : "=",

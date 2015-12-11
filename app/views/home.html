@@ -1,0 +1,17 @@
+<my-sidebar></my-sidebar>
+<md-content layout="column" >
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Received Feedback">
+            <md-content class="md-padding">
+                <my-feedback-list message="feedbackformemessage" feeds="feedbacksforme"></my-feedback-list>
+            </md-content>
+        </md-tab>
+
+        <md-tab label="Sent Feedback">
+            <md-content class="md-padding">
+                <my-feedback-list message="feedbackssentbymemsg" feeds="feedbackssentbyme"></my-feedback-list>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-content>
+

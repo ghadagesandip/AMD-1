@@ -1,0 +1,23 @@
+<md-list layout="column" class="md-padding" flex="100">
+    <my-list-item ng-if="!feeds.length">
+        No feedback found.
+    </my-list-item>
+    <md-list-items flex="100" layout="column"  ng-repeat="feedback in feeds" class="md-3-line" layout-margin>
+        <div layout="row" flex="100"  layout-margin style="margin-top: 10px;">
+            <div flex="20" layout="row" layout-align="center center" layout-wrap layout-margin>
+                <img  ng-if="feedback.feedback_log.feedback_from.google_image_url!=null" ng-src="{{feedback.feedback_log.feedback_from.google_image_url}}" class="md-avatar profile-md-avatar" />
+                <md-icon ng-if="feedback.feedback_log.feedback_from.google_image_url==null" md-font-library="material-icons" class="profile-md-avatar md-avatar">{{feedback.feedback_log.feedback_from.first_name}}</md-icon>
+            </div>
+
+            <div flex="60" class="md-list-item-text" layout="row" layout-align="center left">
+                <h3 ng-hide="true">{{feedback.question.question.split('[FIRST_NAME]').join(feedback.feedback_log.feedback_from.first_name) }}</h3>
+                <p>{{feedback.feedback_text}}</p>
+            </div>
+
+            <div flex="20" layout="column" layout-align="center center">
+                <img ng-src="{{feedback.badge.active_image}}" class="md-avatar" alt="{{feedback.badge.badge_name}}" />
+                {{feedback.created |date:'M/d'}}
+            </div>
+        </div>
+    </md-list-items>
+</md-list>

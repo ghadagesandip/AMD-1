@@ -7,6 +7,9 @@ app.factory('FeedbackFact',['$http','baseUrl',function($http,baseUrl){
 
         submitFeedback: function(feedbackId,data){
             return $http.post(baseUrl+'submit-feedback/'+feedbackId, data);
+        },
+        getMyRecentReceivedFeedbacks : function(memberId, teamId){
+            return $http.get(baseUrl+'get-my-recent-received-feedbacks/'+memberId+'/'+teamId);
         }
 
     }

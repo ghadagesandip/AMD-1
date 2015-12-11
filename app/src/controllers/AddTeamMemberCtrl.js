@@ -14,7 +14,7 @@ app.controller('AddTeamMemberCtrl',['$scope','$rootScope','$location','loginFact
 
     if(loginFact.getCookie('is_organizer') =="false"){
         $rootScope.flashmessage ='You are not allowed to create team';
-        $location.path('/recent-feedback');
+        $location.path('/home');
     }
 
 

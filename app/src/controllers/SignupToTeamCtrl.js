@@ -50,7 +50,7 @@ app.controller('SignupToTeamCtrl',['$scope','$rootScope','$routeParams','$window
                     loginFact.saveValue('is_organizer', data.data.is_organizer);
                     loginFact.saveValue('active', data.data.active);
                     loginFact.saveValue('teamId', data.data.teams[0].id);
-                    $location.path('/recent-feedback');
+                    $location.path('/home');
                 }
             })
             .error(function(data, status, headers, config){
